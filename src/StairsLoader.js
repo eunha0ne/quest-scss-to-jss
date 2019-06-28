@@ -1,25 +1,26 @@
 import React from 'react';
-import './StairsLoader.scss';
+import injectSheet from 'react-jss';
+import style from './StairsLoaderStyle.js';
 
 const Bar = () => {
-  return (
-    < >
-      <div className="loader__bar"></div>
-      <div className="loader__bar"></div>
-      <div className="loader__bar"></div>
-      <div className="loader__bar"></div>
-      <div className="loader__bar"></div>
-    </>
-  );
+  const MAX_UNIT = 5;
+  const list = Array.from({ length: MAX_UNIT + 1 }, (v, i) => i);
+
+  return list.map((node, idx) => {
+    const id = `loaderBar${idx}`;
+    const Item = ({ classes, children, ...props }) =>
+      <div className={classes.loader__bar}></div>;
+    const StyledItem = injectSheet(style)(Item);
+
+    return <StyledItem key={id} idx={idx} />
+  });
 };
 
-const StairsLoader = () => {
-  return (
-    <div className="loader">
-      <Bar />
-      <div className="loader__ball"></div>
-    </div>
-  )
-};
+const StairsLoader = ({ classes, children }) => (
+  <div className={classes.loader}>
+    <Bar />
+    <div className={classes.loader__ball}></div>
+  </div>
+);
 
-export default StairsLoader;
+export default injectSheet(style)(StairsLoader);
