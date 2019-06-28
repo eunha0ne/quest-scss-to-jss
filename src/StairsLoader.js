@@ -8,7 +8,7 @@ const Bar = () => {
 
   return list.map((node, idx) => {
     const id = `loaderBar${idx}`;
-    const Item = ({ classes, children, ...props }) =>
+    const Item = ({ classes }) =>
       <div className={classes.loader__bar}></div>;
     const StyledItem = injectSheet(style)(Item);
 
@@ -16,7 +16,7 @@ const Bar = () => {
   });
 };
 
-const StairsLoader = ({ classes, children }) => (
+const StairsLoader = ({ classes }) => (
   <div className={classes.loader}>
     <Bar />
     <div className={classes.loader__ball}></div>
