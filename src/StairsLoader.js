@@ -1,30 +1,26 @@
 import React from 'react';
 import injectSheet from 'react-jss';
-import { createUseStyles } from 'react-jss'
 import style from './StairsLoaderStyle.js';
 
 const Bar = () => {
   const MAX_UNIT = 5;
-  const list = Array.from({ length: MAX_UNIT }, (v, i) => i);
+  const list = Array.from({ length: MAX_UNIT + 1 }, (v, i) => i);
 
   return list.map((node, idx) => {
     const id = `loaderBar${idx}`;
+    const Item = ({ classes, children, ...props }) =>
+      <div className={classes.loader__bar}></div>;
+    const StyledItem = injectSheet(style)(Item);
 
-    return (
-      <div key={id} className=""></div>
-    );
+    return <StyledItem key={id} idx={idx} />
   });
 };
 
-
-
-const StairsLoader = ({ classes, children }) => {
-  return (
-    <div className={classes.loader}>
-      <Bar />
-      <div className={classes.loader__ball}></div>
-    </div>
-  )
-};
+const StairsLoader = ({ classes, children }) => (
+  <div className={classes.loader}>
+    <Bar />
+    <div className={classes.loader__ball}></div>
+  </div>
+);
 
 export default injectSheet(style)(StairsLoader);
