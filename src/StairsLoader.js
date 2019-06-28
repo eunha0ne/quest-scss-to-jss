@@ -8,8 +8,7 @@ const Bar = () => {
 
   return list.map((node, idx) => {
     const id = `loaderBar${idx}`;
-    const Item = ({ classes }) =>
-      <div className={classes.loader__bar}></div>;
+    const Item = ({ classes }) => <div className={classes.loader__bar}></div>;
     const StyledItem = injectSheet(style)(Item);
 
     return <StyledItem key={id} idx={idx} />
