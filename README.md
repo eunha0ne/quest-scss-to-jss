@@ -6,6 +6,7 @@ This project aimed to help one of my friend to converting SCSS to JSS syntax wit
 **CSS-in-JS avoids these problems entirely by generating unique class names when styles are converted to CSS.** This allows you to think about styles on a component level with out worrying about styles defined elsewhere.
 
 ## install
+* [JSS](https://cssinjs.org/jss-syntax?v=v10.0.0-alpha.21)
 * [yarn](https://yarnpkg.com/en/docs/install#windows-stable)
 ```
 yarn add react-jss
